@@ -2,7 +2,7 @@ use config::{Config, ConfigError};
 use poem::{handler, listener::TcpListener, post, web::Json, Route, Server};
 use serde::Deserialize;
 use tokio::time::{sleep, Duration};
-use tracing::{debug, error, info};
+use tracing::{error, info};
 
 #[derive(Debug, Deserialize)]
 struct CreateSomething {
@@ -22,13 +22,13 @@ async fn hello(req: Json<CreateSomething>) -> Json<serde_json::Value> {
 #[derive(Debug, Deserialize)]
 struct AppConfig {
     java_static_fn: String,
-    debug: bool,
+    // debug: bool,
 }
 
 fn load_config() -> Result<AppConfig, ConfigError> {
     Config::builder()
         // .add_source(config::File::with_name("config/default"))
-        .add_source(config::Environment::with_prefix("J4RSPROTO").separator("_"))
+        .add_source(config::Environment::with_prefix("J4RSPROTO"))
         .build()?
         .try_deserialize()
 }
@@ -45,14 +45,14 @@ async fn main() -> Result<(), std::io::Error> {
         error!("Failed to load config: {}", err);
         // AppConfig {
         //     java_static_fn: String::from("beep-beep"),
-        //     debug: true,
+        //     // debug: true,
         // }
         std::process::exit(1);
     });
 
-    if config.debug {
-        debug!("DEBUG: enabled");
-    }
+    // if config.debug {
+    //     debug!("DEBUG: enabled");
+    // }
 
     info!("Setting up JAVA_STATIC_FN: {}", config.java_static_fn);
 

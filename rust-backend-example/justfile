@@ -1,0 +1,6 @@
+
+export RUST_LOG := "debug"
+export J4RSPROTO_JAVA_STATIC_FN := "com.example.ProtoLogic.protobuf_logic"
+
+run:
+    cargo run
