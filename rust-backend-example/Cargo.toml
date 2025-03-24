@@ -1,0 +1,20 @@
+[package]
+name = "rust-backend-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+poem = "3.1.7"
+tokio = { version = "1.17.0", features = ["rt-multi-thread", "macros"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.9", features = ["env-filter"] }
+serde_json = "1.0.68"
+serde = { version = "1.0.140", features = ["derive"] }
+mime = "0.3.16"
+open = "5.0.1"
+futures-util = "0.3.21"
+tokio-stream = "0.1.8"
+prost = "0.13.1"
+j4rs = "0.22.0"
+config = "0.15.11"
+anyhow = "1.0.97"
