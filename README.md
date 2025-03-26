@@ -22,8 +22,6 @@ project-root/ ├── rust-backend-example/ # Rust async API server (poem-web)
 
 ---
 
-## 🚀 Getting Started
-
 ### 1. Prerequisites
 
 - recommended to use [devenv.sh](https://devenv.sh) and [nix](https://nixos.org)
@@ -37,10 +35,10 @@ From the project root:
 ```bash
 # Generate Rust structs using prost
 cd rust-backend-example
-protoc --proto_path=../proto --rust_out=src ../proto/custom.proto
+...
 
 # Generate Java classes
 cd ../scala-embedded-example
-protoc --proto_path=../proto --java_out=src/main/java ../proto/custom.proto
+sbt assembly
 
 

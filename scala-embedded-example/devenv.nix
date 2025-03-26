@@ -8,12 +8,17 @@
   # https://devenv.sh/packages/
   packages = [
     pkgs.git
+    pkgs.just
     pkgs.sbt
+
+    # lang servers
     pkgs.metals
+    pkgs.nil
   ];
 
   # https://devenv.sh/languages/
   languages.scala.enable = true;
+  languages.scala.package = pkgs.scala_2_13;
   languages.java.enable = true;
 
   # https://devenv.sh/processes/

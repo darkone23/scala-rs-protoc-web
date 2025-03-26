@@ -4,3 +4,6 @@ export J4RSPROTO_JAVA_STATIC_FN := "com.example.ProtoLogic.protobuf_logic"
 
 run:
     cargo run
+
+curl:
+    curl -XPOST --json '{"name":"example"}' http://localhost:3000/hello                                                                  

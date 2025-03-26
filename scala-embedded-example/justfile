@@ -1,0 +1,15 @@
+JAR := "./target/scala-2.13/scala-embedded-example-0.1.0-SNAPSHOT.jar"
+
+run:
+    sbt run
+
+assembly:
+    sbt assembly
+
+run-assembly:
+    just assembly
+    java -jar {{ JAR }} 
+
+# and if you are wanting to copy manually for maturin testing
+# mkdir -p /tmp/datomic-crosslang-tools/jassets
+# cp ./target/scala-2.13/datomic-scala-facade-0.1.0-SNAPSHOT.jar /tmp/datomic-crosslang-tools/jassets 

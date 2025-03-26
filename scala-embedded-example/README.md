@@ -1,18 +1,21 @@
 using scala assembly tools to ship onejar
 
-datomic provides a clojure native api
-
 use scala to define java interface
 
 ```sh
-# assuming you have the musicbrainz db from the docker datomic demo
-devenv shell
-sbt run
+devenv shell # or direnv allow
 
-sbt assembly
-java -cp ./target/scala-2.13/datomic-scala-facade-0.1.0-SNAPSHOT.jar example.Hello
+# to run the main method via sbt
+just run
 
-# and if you are wanting to copy manually for maturin testing
-mkdir -p /tmp/datomic-crosslang-tools/jassets
-cp ./target/scala-2.13/datomic-scala-facade-0.1.0-SNAPSHOT.jar /tmp/datomic-crosslang-tools/jassets 
+# to build the assembly
+just assembly
+
+# to build and run
+just run-assembly
 ```
+
+some technologies included in this example:
+
+- [sbt-assembly](https://github.com/sbt/sbt-assembly) jar shading magic for scala
+- [scalapb](https://github.com/scalapb/ScalaPB) protobufs for scala
